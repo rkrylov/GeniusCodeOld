@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Romb {
 
-    public static void main(String[] arg){
+    public static void main(String[] arg) {
         int size = setSize();
         drawRomb(1, size);
     }
 
-    static void drawRomb(int val, int size){
-        if (val == size*2){
+    static void drawRomb(int val, int size) {
+        if (val == size*2) {
             return;
         } else{
             int countSpaces;
@@ -21,10 +21,10 @@ public class Romb {
             else countSpaces = val - size;
 
             countStars = size - countSpaces;
-            for (int x = 0; x < countSpaces; x++){
+            for (int x = 0; x < countSpaces; x++) {
                 result += " ";
             }
-            for (int x = 0; x < countStars; x++){
+            for (int x = 0; x < countStars; x++) {
                 result += "* ";
             }
 
@@ -35,7 +35,7 @@ public class Romb {
 
     }
 
-    static int setSize(){
+    static int setSize() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter size of romb:");
         int value = scanner.nextInt();
