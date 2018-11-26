@@ -1,26 +1,21 @@
 package HomeWork.Lesson_1;
 
-import java.util.Arrays;
 
 public class Fibonacci {
-
-    static int[] arr = new int[11];
+    static int maxNumber = 6;
 
     public static void main(String[] arg){
-        fibonacci(10);
-        System.out.println(Arrays.toString(arr));
+        System.out.println(fibonacci(maxNumber));
     }
 
     static int fibonacci(int index){
-        if(index == 0){
-            arr[index] = index;
-            return 0;
-        } else if(index == 1){
-            arr[index] = index;
-            return arr[index];
+        if (index == 0){
+            return index;
+        } else if (index == 1){
+            return index;
+        } else{
+            int result = fibonacci(index - 1) + fibonacci(index - 2);
+            return result;
         }
-
-        arr[index] = fibonacci(index-1)+arr[index-2];
-        return arr[index];
     }
 }

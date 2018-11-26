@@ -5,9 +5,11 @@ public class ElvisTask {
         System.out.println(match(1,2,1,0));
     }
 
-    static int match(int a, int b, int c, int d){
+    static int match(int firstTeamResult, int secondTeamResult, int forecastFirst, int forecastSecond){
         int result;
-        result = (a>=b&&c>=b)||(a<=b&&c<=d) ? (a==c&&b==d ? 2 : 1) : 0;
+        result = (firstTeamResult >= secondTeamResult && forecastFirst >= secondTeamResult)||
+                (firstTeamResult <= secondTeamResult && forecastFirst <= forecastSecond) ?
+                (firstTeamResult == forecastFirst && secondTeamResult == forecastSecond ? 2 : 1) : 0;
         return result;
     }
 }

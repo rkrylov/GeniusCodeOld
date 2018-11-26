@@ -4,50 +4,41 @@ import java.util.Scanner;
 
 public class Romb {
 
-
     public static void main(String[] arg){
         int size = setSize();
-        String[][] romb = makeRomb(size);
-        printRomb(romb);
+        drawRomb(1, size);
     }
-    static String[][] makeRomb(int size){
-        String[][] matrix = new String[size][size];
-        int center = size/2;
-        int countStars = 0;
 
-        for(int x = 0; x<size; x++){
-            for(int y = 0; y<size; y++){
-                if(y < center-countStars || y > center+countStars)
-                    matrix[x][y] = " ";
-                else
-                    matrix[x][y] = "*";
+    static void drawRomb(int val, int size){
+        if (val == size*2){
+            return;
+        } else{
+            int countSpaces;
+            int countStars;
+            String result = "";
+
+            if (size > val) countSpaces = size - val;
+            else countSpaces = val - size;
+
+            countStars = size - countSpaces;
+            for (int x = 0; x < countSpaces; x++){
+                result += " ";
             }
-            if(x<center)
-                countStars++;
-            else
-                countStars--;
+            for (int x = 0; x < countStars; x++){
+                result += "* ";
+            }
+
+            System.out.println(result);
+
+            drawRomb(val + 1, size);
         }
-        return matrix;
+
     }
 
     static int setSize(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter size of romb(odd(непарное) number):");
+        System.out.println("Enter size of romb:");
         int value = scanner.nextInt();
-        if(value%2 != 0) return value;
-        else {
-            System.out.println("Odd number!");
-            value = scanner.nextInt();
-            return value;
-        }
-    }
-
-    static void printRomb(String[][] matrix){
-        for(int x = 0; x < matrix.length; x++){
-            for(int y = 0; y < matrix.length; y++){
-                System.out.print(matrix[x][y]+" ");
-            }
-            System.out.println("\t");
-        }
+        return value;
     }
 }
