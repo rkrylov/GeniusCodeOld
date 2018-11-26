@@ -12,7 +12,7 @@ public class Romb {
     static void drawRomb(int val, int size) {
         if (val == size*2) {
             return;
-        } else{
+        } else {
             int countSpaces;
             int countStars;
             String result = "";
