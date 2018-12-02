@@ -1,6 +1,5 @@
 package HomeWork.Lesson_2.Car;
 
-
 public class CarWheel {
 
     private double tireIntegrity;
@@ -18,7 +17,7 @@ public class CarWheel {
     }
 
     public void wipeOffTire(int percent) {
-        tireIntegrity = tireIntegrity - (tireIntegrity * ((double)percent/100));
+        tireIntegrity = tireIntegrity - (tireIntegrity * ((double) percent / 100));
     }
 
     public double getTireIntegrity() {

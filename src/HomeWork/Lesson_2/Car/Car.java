@@ -3,7 +3,7 @@ package HomeWork.Lesson_2.Car;
 import java.util.Arrays;
 
 public class Car {
-    private final int DATE_OF_MANUFACTURE;
+    private final int dateOfManufacture;
     private int engineType;
     private int maxSpeed;
     private double accelerationTime;
@@ -14,13 +14,13 @@ public class Car {
     private CarWheel[] wheels = new CarWheel[0];
 
     public Car(int dateOfManufacture) {
-        DATE_OF_MANUFACTURE = dateOfManufacture;
+        this.dateOfManufacture = dateOfManufacture;
     }
 
-    public Car(int DATE_OF_MANUFACTURE, int engineType, int maxSpeed,
+    public Car(int dateOfManufacture, int engineType, int maxSpeed,
                double accelerationTime, int passengerCapacity,
                int passengerQuantity, int currentSpeed) {
-        this.DATE_OF_MANUFACTURE = DATE_OF_MANUFACTURE;
+        this.dateOfManufacture = dateOfManufacture;
         this.engineType = engineType;
         this.maxSpeed = maxSpeed;
         this.accelerationTime = accelerationTime;
@@ -59,13 +59,15 @@ public class Car {
 
     public void setNewWheels(int number) {
         CarWheel[] wheels2 = new CarWheel[wheels.length + number];
-        if (wheels.length != 0)
+        if (wheels.length != 0) {
             for (int x = 0; x < wheels.length; x++) {
                 wheels2[x] = wheels[x];
             }
+        }
         for (int x = 0; x < wheels2.length; x++) {
-            if (wheels2[x] == null)
+            if (wheels2[x] == null) {
                 wheels2[x] = new CarWheel();
+            }
         }
         wheels = wheels2;
     }
@@ -75,7 +77,8 @@ public class Car {
             System.out.println("Sorry, but you don't have a driver!");
             return 0;
         }
-        double theMostWipedTire = 1;
+        final double MAX_WIPE_TIRE = 1;
+        double theMostWipedTire = MAX_WIPE_TIRE;
         for (int x = 0; x < wheels.length; x++) {
             if (wheels[x] != null)
                 if (wheels[x].getTireIntegrity() < theMostWipedTire)
@@ -86,7 +89,7 @@ public class Car {
 
     public void printCar() {
         System.out.println("Car{" +
-                "Date of manufacture: " + DATE_OF_MANUFACTURE +
+                "Date of manufacture: " + dateOfManufacture +
                 ", type of engine: " + engineType +
                 ", Max Speed: " + maxSpeed +
                 ", Acceleration time: " + accelerationTime +

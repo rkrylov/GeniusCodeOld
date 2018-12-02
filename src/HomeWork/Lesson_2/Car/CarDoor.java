@@ -2,52 +2,68 @@ package HomeWork.Lesson_2.Car;
 
 public class CarDoor {
 
-    private boolean ifWindowClose;
-    private boolean ifDoorClose;
+    private boolean isWindowClose;
+    private boolean isDoorClose;
 
     public CarDoor() {
-        ifWindowClose = true;
-        ifDoorClose = true;
+        isWindowClose = true;
+        isDoorClose = true;
     }
 
-    public CarDoor(boolean ifWindowClose, boolean ifDoorClose) {
-        this.ifWindowClose = ifWindowClose;
-        this.ifDoorClose = ifDoorClose;
+    public CarDoor(boolean isWindowClose, boolean isDoorClose) {
+        this.isWindowClose = isWindowClose;
+        this.isDoorClose = isDoorClose;
     }
 
     public void openDoor() {
-        ifDoorClose = false;
+        isDoorClose = false;
     }
 
     public void closeDoor() {
-        ifDoorClose = true;
+        isDoorClose = true;
     }
 
     public void switchDoor() {
-        if (ifDoorClose) openDoor();
-        else closeDoor();
+        if (isDoorClose) {
+            openDoor();
+        }
+        else {
+            closeDoor();
+        }
     }
 
     public void openWindow() {
-        ifWindowClose = false;
+        isWindowClose = false;
     }
 
     public void closeWindow() {
-        ifWindowClose = true;
+        isWindowClose = true;
     }
 
     public void switchWindow() {
-        if(ifWindowClose) openWindow();
-        else closeWindow();
+        if (isWindowClose) {
+            openWindow();
+        }
+        else {
+            closeWindow();
+        }
     }
 
     @Override
     public String toString() {
         String result = "CarDoor{ window ";
-        if(ifWindowClose) result += "close, ";
-        else result += "open, ";
-        if(ifDoorClose) result += "door close}";
-        else result += "door open}";
+        if (isWindowClose) {
+            result += "close, ";
+        }
+        else {
+            result += "open, ";
+        }
+        if (isDoorClose) {
+            result += "door close}";
+        }
+        else {
+            result += "door open}";
+        }
         return result;
     }
 }
