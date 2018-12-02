@@ -3,6 +3,9 @@ package HomeWork.Lesson_2.Car;
 import java.util.Arrays;
 
 public class Car {
+    static final double MAX_WIPE_TIRE = 1;
+    static final int MAX_WHEELS = 7;
+
     private final int dateOfManufacture;
     private int engineType;
     private int maxSpeed;
@@ -58,26 +61,31 @@ public class Car {
     }
 
     public void setNewWheels(int number) {
-        CarWheel[] wheels2 = new CarWheel[wheels.length + number];
-        if (wheels.length != 0) {
-            for (int x = 0; x < wheels.length; x++) {
-                wheels2[x] = wheels[x];
+        if(wheels.length + number > MAX_WHEELS) {
+            System.out.println("Sorry, but you want too many wheels in one car!");
+        } else {
+            CarWheel[] wheels2 = new CarWheel[wheels.length + number];
+            if (wheels.length != 0) {
+                for (int x = 0; x < wheels.length; x++) {
+                    wheels2[x] = wheels[x];
+                }
             }
-        }
-        for (int x = 0; x < wheels2.length; x++) {
-            if (wheels2[x] == null) {
-                wheels2[x] = new CarWheel();
+            for (int x = 0; x < wheels2.length; x++) {
+                if (wheels2[x] == null) {
+                    wheels2[x] = new CarWheel();
+                }
             }
+            wheels = wheels2;
         }
-        wheels = wheels2;
     }
+
+
 
     public double getCurrentMaxSpeed() {
         if (passengerQuantity == 0) {
             System.out.println("Sorry, but you don't have a driver!");
             return 0;
         }
-        final double MAX_WIPE_TIRE = 1;
         double theMostWipedTire = MAX_WIPE_TIRE;
         for (int x = 0; x < wheels.length; x++) {
             if (wheels[x] != null)
