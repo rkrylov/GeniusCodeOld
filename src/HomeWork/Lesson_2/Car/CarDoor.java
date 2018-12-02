@@ -26,8 +26,7 @@ public class CarDoor {
     public void switchDoor() {
         if (isDoorClose) {
             openDoor();
-        }
-        else {
+        } else {
             closeDoor();
         }
     }
@@ -43,8 +42,7 @@ public class CarDoor {
     public void switchWindow() {
         if (isWindowClose) {
             openWindow();
-        }
-        else {
+        } else {
             closeWindow();
         }
     }
@@ -54,14 +52,12 @@ public class CarDoor {
         String result = "CarDoor{ window ";
         if (isWindowClose) {
             result += "close, ";
-        }
-        else {
+        } else {
             result += "open, ";
         }
         if (isDoorClose) {
             result += "door close}";
-        }
-        else {
+        } else {
             result += "door open}";
         }
         return result;
