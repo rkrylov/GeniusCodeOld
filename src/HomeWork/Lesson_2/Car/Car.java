@@ -79,8 +79,6 @@ public class Car {
         }
     }
 
-
-
     public double getCurrentMaxSpeed() {
         if (passengerQuantity == 0) {
             System.out.println("Sorry, but you don't have a driver!");
