@@ -33,7 +33,8 @@ public class MyArrayList<T> implements List<T> {
         }
 
         tempList[index] = value;
-        for (int x = index + 1; x < size + 1; x++) {
+
+        for (int x = index + 1; x < list.length; x++) {
             tempList[x] = list[x];
         }
 
@@ -41,7 +42,7 @@ public class MyArrayList<T> implements List<T> {
         size++;
     }
 
-    public void ensureCapacity(int capacity) {
+    private void ensureCapacity(int capacity) {
         if (capacity > list.length) {
             Object[] tempList = new Object[list.length * 2];
             for (int x = 0; x < list.length; x++) {
@@ -56,16 +57,17 @@ public class MyArrayList<T> implements List<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0)
-            return true;
-        return false;
+        return size == 0;
     }
 
     public boolean contains(Object value) {
-        for (Object val : list)
-            if (val != null && value.hashCode() == val.hashCode())
-                if (value.equals(val))
+        for (Object val : list) {
+            if (val != null && value.hashCode() == val.hashCode()) {
+                if (value.equals(val)) {
                     return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -84,14 +86,17 @@ public class MyArrayList<T> implements List<T> {
                 tempList[x] = list[x];
             }
         }
+
         list = tempList;
         size--;
         return result;
     }
 
     public void clear() {
-        for (int x = 0; x < list.length; x++)
+        for (int x = 0; x < list.length; x++) {
             list[x] = null;
+        }
+
         size = 0;
     }
 
