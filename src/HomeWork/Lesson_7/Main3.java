@@ -3,7 +3,7 @@ package HomeWork.Lesson_7;
 public class Main3 {
     public static void main(String[] args) {
         MyThread myThread1 = new MyThread(3000, "Thread1");
-        MyThread myThread2 = new MyThread(3000, "Thread2");
+        MyThread myThread2 = new MyThread(5000, "Thread2");
 
         myThread1.setDaemon(true);
         myThread2.setDaemon(true);
